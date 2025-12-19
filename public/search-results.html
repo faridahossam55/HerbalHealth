@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herbal Health - Search Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header سيتم تحميله أوتوماتيك -->
+    <div id="header-container"></div>
+
+    <!-- Search Results Section -->
+    <section class="search-results-section">
+        <div class="container">
+            <div class="results-header">
+                <h1 id="disease-title">Search Results</h1>
+                <p>Natural remedies for your health condition</p>
+                <div class="results-count" id="results-count">Showing 12 products</div>
+            </div>
+            
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">All Products</button>
+                <button class="category-tab" data-category="herbs">Herbs</button>
+                <button class="category-tab" data-category="fruits">Fruits</button>
+            </div>
+            
+            <div class="products-grid" id="products-container">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+            
+            <div class="back-to-search">
+                <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Search</a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+<!-- Product Details Modal -->
+<!--<div id="productModal" class="product-modal">
+    <div class="modal-content">
+        <button class="close-modal">&times;</button>
+        
+        <img id="modalProductImage" src="" alt="" class="modal-product-image">
+        
+        <h2 id="modalProductName" class="modal-product-name"></h2>
+        <div id="modalProductCategory" class="modal-product-category"></div>
+        
+        <div class="modal-section">
+            <h4>About this Product</h4>
+            <p id="modalProductDescription"></p>
+        </div>
+        
+        <div class="modal-section">
+            <h4>Benefits</h4>
+            <p id="modalProductBenefits"></p>
+        </div>
+        
+        <div class="modal-section">
+            <h4>How to Use</h4>
+            <p id="modalProductUsage"></p>
+        </div>
+        
+        <div class="modal-section">
+            <h4>Customer Reviews</h4>
+            <div id="modalProductReviews" class="product-reviews">
+                Reviews will be loaded here 
+            </div>
+        </div>
+        
+        <div class="product-price">
+            <div class="price" id="modalProductPrice"></div>
+        </div>
+        
+        <div class="modal-actions">
+            <button class="btn-cart" id="modalAddToCart">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </div>
+    </div>
+</div>-->
+
+
+
+
+<!-- Product Details Modal -->
+<div id="productModal" class="product-modal">
+    <div class="modal-content">
+        <button class="close-modal">&times;</button>
+        
+        <div class="modal-header">
+            <img id="modalProductImage" src="" alt="" class="modal-product-image">
+            <h2 id="modalProductName" class="modal-product-name"></h2>
+            <div id="modalProductCategory" class="modal-product-category"></div>
+        </div>
+        
+        <div class="modal-body">
+            <div class="modal-section">
+                <h4><i class="fas fa-info-circle"></i> About</h4>
+                <p id="modalProductDescription"></p>
+            </div>
+            
+            <div class="modal-section">
+                <h4><i class="fas fa-leaf"></i> Benefits</h4>
+                <ul id="modalProductBenefits" class="features-list"></ul>
+            </div>
+            
+            <div class="modal-section">
+                <h4><i class="fas fa-book-open"></i> How to Use</h4>
+                <p id="modalProductUsage"></p>
+            </div>
+            
+            <div class="modal-section">
+                <h4><i class="fas fa-star"></i> Reviews</h4>
+                <div id="modalProductReviews" class="product-reviews"></div>
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <div class="product-price-section">
+                <div class="price-main" id="modalProductPrice"></div>
+                <div id="modalProductOldPrice"></div>
+            </div>
+            
+            <div class="modal-actions">
+                <button class="btn-modal-wishlist" id="modalWishlist">
+                    <i class="far fa-heart"></i> Wishlist
+                </button>
+                <button class="btn-modal-cart" id="modalAddToCart">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div id="footer-container"></div>
+
+     <script src="script.js"></script>
+</body>
+</html>

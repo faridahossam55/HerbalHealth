@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Herbal Health</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- الهيدر سيتم تحميله ديناميكياً -->
+    <div id="header-container"></div>
+
+    <div class="register-page-wrapper">
+        <div class="background-container">
+            <img src="images/register_photo.jpeg" alt="Herbs and Wellness Background" class="display-image">
+        </div>
+
+        <div class="register-container">
+            <form class="register-form" id="registerForm">
+                <h2>Create Your Account</h2>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <input type="text" id="firstName" placeholder="First Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="lastName" placeholder="Last Name" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <i class="fa-solid fa-eye input-icon" id="togglePassword"></i>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                    <i class="fa-solid fa-eye input-icon" id="toggleConfirmPassword"></i>
+                </div>
+
+                <label class="terms-checkbox">
+                    <input type="checkbox" id="agreeTerms" required>
+                    I agree to the <a href="#">terms of service</a> and <a href="#">privacy policy</a>
+                </label>
+
+                <button type="submit" class="sign-up-button">Create Account</button>
+
+                <div class="divider">
+                    <span class="or-text">Or Sign Up With</span>
+                </div>
+
+                <div class="social-login">
+                    <button type="button" class="social-button-icon google">
+                        <i class="fa-brands fa-google"></i>
+                    </button>
+                    <button type="button" class="social-button-icon facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </button>
+                    <button type="button" class="social-button-icon apple">
+                        <i class="fa-brands fa-apple"></i>
+                    </button>
+                </div>
+
+                <div class="login-link">
+                    Already have an account? <a href="login.html">Sign In</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- الفوتر سيتم تحميله ديناميكياً -->
+    <div id="footer-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

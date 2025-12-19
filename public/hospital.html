@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Search - Herbal Health System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header سيتم تحميله أوتوماتيك -->
+    <div id="header-container"></div>
+
+    <main class="container">
+        <h1 class="page-title">Find Hospitals & Clinics</h1>
+        <section class="hospital-results-grid" id="hospital-results">
+            <div class="hospital-card" data-name="The Health Bridge Hospital" data-type="General & Wellness"
+                data-address="15 Cairo Street, New Heliopolis, Cairo" data-contact="02-3456-7890"
+                data-details="Specializes in chronic disease management and nutritional support. Certified by WHO for integrative medicine practices."
+                data-map="https://maps.app.goo.gl/example1">
+                <h3>The Health Bridge Hospital</h3>
+                <div class="hospital-card-content">
+                    <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 15 Cairo Street, New Heliopolis, Cairo</p>
+                    <p><i class="fas fa-phone"></i> <strong>Contact:</strong> 02-3456-7890</p>
+                    <p><i class="fas fa-notes-medical"></i> <strong>Specialty:</strong> Natural Wellness Programs</p>
+                    <button class="card-button view-details-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="hospital-card" data-name="Al-Noor Herbal Clinic" data-type="Specialized Clinic"
+                data-address="Giza Square, Beside the Green Pharmacy" data-contact="010-1234-5678"
+                data-details="A smaller clinic focusing on herbal and traditional treatments for conditions like anxiety and mild joint pain. Appointments required."
+                data-map="https://maps.app.goo.gl/example2">
+                <h3>Al-Noor Herbal Clinic</h3>
+                <div class="hospital-card-content">
+                    <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Giza Square, Beside the Green Pharmacy</p>
+                    <p><i class="fas fa-phone"></i> <strong>Contact:</strong> 010-1234-5678</p>
+                    <p><i class="fas fa-notes-medical"></i> <strong>Specialty:</strong> Traditional & Herbal Medicine</p>
+                    <button class="card-button view-details-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="hospital-card" data-name="El-Salam Medical Center" data-type="Large Scale"
+                data-address="Ring Road, Near AUC" data-contact="19191 (Hotline)"
+                data-details="Comprehensive medical services with a dedicated department for natural health consultations and dietary planning. Accepts major insurance."
+                data-map="https://maps.app.goo.gl/example3">
+                <h3>El-Salam Medical Center</h3>
+                <div class="hospital-card-content">
+                    <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Ring Road, Near AUC</p>
+                    <p><i class="fas fa-phone"></i> <strong>Contact:</strong> 19191 (Hotline)</p>
+                    <p><i class="fas fa-notes-medical"></i> <strong>Specialty:</strong> General Medicine & Nutrition</p>
+                    <button class="card-button view-details-btn">View Details</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="hospital-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-hospital-name">Hospital Name</h2>
+                <span class="close-btn">×</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>Type:</strong> <span id="modal-hospital-type"></span></p>
+                <p><strong>Address:</strong> <span id="modal-hospital-address"></span></p>
+                <p><strong>Contact:</strong> <span id="modal-hospital-contact"></span></p>
+                <p><strong>Details:</strong> <span id="modal-hospital-details"></span></p>
+                <a href="#" target="_blank" id="modal-map-link" class="map-link-btn">
+                    <i class="fas fa-map-marked-alt"></i> View on Map
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer سيتم تحميله أوتوماتيك -->
+    <div id="footer-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

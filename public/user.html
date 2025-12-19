@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="user-profile-body">
+  <!-- سيتم إضافة الهيدر يدوياً -->
+  <div id="header-container"></div>
+
+  <div class="container user-profile-container">
+    <div class="profile-header user-profile-header">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User Photo" class="user-profile-img">
+      <div class="info user-profile-info">
+        <h2 id="pageUserName">Welcome, User Name</h2>
+        <p>Email: <span id="pageUserEmail">user@example.com</span></p>
+        <p>Role: <span id="pageUserRole">Customer</span></p>
+      </div>
+      <button class="edit-btn user-profile-edit-btn" id="openProfileModalBtn">Edit My Info</button>
+    </div>
+
+    <div class="user-personal-info">
+      <h3>My Personal Information</h3>
+      <div class="user-info-details">
+        <p><strong>Full Name:</strong> <span id="infoName">User Name</span></p>
+        <p><strong>Email Address:</strong> <span id="infoEmail">user@example.com</span></p>
+        <p><strong>Phone Number:</strong> <span id="infoPhone">01234567890</span></p>
+        <p><strong>Default Address:</strong> <span id="infoAddress">123 Main St, Cairo, Egypt</span></p>
+      </div>
+    </div>
+
+    <div class="user-order-history">
+      <h3>My Order History</h3>
+      <input type="text" id="orderSearch" class="user-order-search" placeholder="Search orders by ID..." onkeyup="filterOrders()">
+      <table class="user-order-table" id="orderTable">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#10542</td>
+            <td>10 Nov 2025</td>
+            <td>$45.50</td>
+            <td><span class="user-order-status user-status-delivered">Delivered</span></td>
+            <td><a href="#" class="user-order-action">View Details</a></td>
+          </tr>
+          <tr>
+            <td>#10521</td>
+            <td>05 Nov 2025</td>
+            <td>$22.00</td>
+            <td><span class="user-order-status user-status-shipped">Shipped</span></td>
+            <td><a href="#" class="user-order-action">Track Order</a></td>
+          </tr>
+          <tr>
+            <td>#10499</td>
+            <td>01 Nov 2025</td>
+            <td>$10.50</td>
+            <td><span class="user-order-status user-status-cancelled">Cancelled</span></td>
+            <td><a href="#" class="user-order-action">View Details</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="user-account-settings">
+      <h3>Account Settings</h3>
+      <p class="user-account-desc">Manage your account preferences and security.</p>
+      
+      <button class="user-settings-btn">Change Password</button>
+      <button class="user-settings-btn">Manage Saved Addresses</button>
+      <button class="user-logout-btn">Logout</button>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div id="profileModal" class="form-modal">
+    <div class="form-modal-content">
+        
+        <div class="form-modal-header">
+            <h3>Edit My Information</h3>
+            <span class="form-modal-close-btn" id="profileModalClose">&times;</span>
+        </div>
+
+        <div class="form-modal-body">
+            <div class="form-group">
+                <label for="modalNameInput" class="form-label">Full Name</label>
+                <input type="text" id="modalNameInput" class="form-input">
+            </div>
+            
+            <div class="form-group">
+                <label for="modalEmailInput" class="form-label">Email Address</label>
+                <input type="email" id="modalEmailInput" class="form-input">
+            </div>
+            
+            <div class="form-group">
+                <label for="modalPhoneInput" class="form-label">Phone Number</label>
+                <input type="text" id="modalPhoneInput" class="form-input">
+            </div>
+            
+            <div class="form-group">
+                <label for="modalAddressInput" class="form-label">Default Address</label>
+                <textarea id="modalAddressInput" class="form-textarea"></textarea>
+            </div>
+            
+            <div class="form-success-message" id="profileSuccessMessage">
+                Your info has been updated successfully!
+            </div>
+            
+            <div class="form-actions">
+                <button class="form-btn form-btn-cancel" id="cancelProfileBtn">Discard</button>
+                <button class="form-btn form-btn-save" id="saveProfileBtn">Save Changes</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="footer-container"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

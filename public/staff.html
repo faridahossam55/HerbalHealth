@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+ integrity="sha512-SnH5WK+bZxgPHs44uWIX+zUKGwEuUCMfa9VjA36TObgU4v1sLmoKHj6GPrWbT4szdM3fT2cN1c7RkG8Y4G1NZA=="
+ crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hospital Staff Dashboard — StaffPage</title>
+
+  <!-- External CSS (extracted from original and namespaced) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="staffPage-body">
+ <div id="header-container"></div>
+<div class="container staffPage-container">
+  <div class="profile-header staffPage-profile-header">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Staff Photo" class="staffPage-profile-img profile-img">
+    <div class="info staffPage-info">
+      <h2 id="adminName" class="staffPage-adminName">Hospital Staff Member</h2>
+      <p>Email: <span id="adminEmail" class="staffPage-adminEmail">staff@example.com</span></p>
+      <p>Role: <span id="adminRole" class="staffPage-adminRole">Hospital Staff</span></p>
+    </div>
+    <button class="edit-btn staffPage-edit-btn" id="openProfileModalBtn">Edit Profile</button>
+  </div>
+
+  <div class="management-section staffPage-management-section">
+    <h3 class="staffPage-management-h3">Submit New Hospital Request</h3>
+    <p style="margin-bottom: 20px; color: #555;" class="staffPage-management-desc">Use this form to report product shortages or system issues.</p>
+
+    <form class="modal-form staffPage-modal-form" id="hospitalRequestForm">
+      <label for="staffName" class="staffPage-label">Your Name</label>
+      <input type="text" id="staffName" class="staffPage-staffName" placeholder="Enter your full name" required>
+
+      <label for="staffDept" class="staffPage-label">Department</label>
+      <select id="staffDept" class="staffPage-staffDept">
+        <option value="Pharmacy">Pharmacy</option>
+        <option value="Emergency">Emergency</option>
+        <option value="Billing">Billing</option>
+        <option value="Management">Management</option>
+      </select>
+
+      <label for="requestType" class="staffPage-label">Request Type</label>
+      <select id="requestType" class="staffPage-requestType">
+        <option value="Product Shortage">Product Shortage</option>
+        <option value="System Issue">System Issue</option>
+        <option value="General Inquiry">General Inquiry</option>
+      </select>
+
+      <label for="requestDesc" class="staffPage-label">Description / Details</label>
+      <textarea id="requestDesc" class="staffPage-requestDesc" placeholder="Please provide details about your request..." required></textarea>
+
+      <div class="form-actions staffPage-form-actions" style="justify-content: flex-start;">
+        <button type="submit" class="save-btn staffPage-save-btn">Submit Request</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="stock-overview staffPage-stock-overview">
+    <h3 class="staffPage-stock-h3">Your Previous Requests</h3>
+    <input type="text" id="requestSearch" class="staffPage-requestSearch" placeholder="Search requests..." onkeyup="filterRequests()">
+    <table class="stock-table staffPage-stock-table" id="requestTable">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Request Type</th>
+          <th>Description</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>12 Nov 2025</td>
+          <td>Product Shortage</td>
+          <td>Need 50 units of Honey Herb.</td>
+          <td><span class="status in-stock staffPage-status staffPage-in-stock">Resolved</span></td>
+        </tr>
+        <tr>
+          <td>13 Nov 2025</td>
+          <td>System Issue</td>
+          <td>Cannot log in to billing.</td>
+          <td><span class="status low-stock staffPage-status staffPage-low-stock">Pending</span></td>
+        </tr>
+        <tr>
+          <td>10 Nov 2025</td>
+          <td>General Inquiry</td>
+          <td>When is the next shipment?</td>
+          <td><span class="status out-stock staffPage-status staffPage-out-stock">Rejected</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Profile Modal -->
+<div id="profileModal" class="form-modal">
+    <div class="form-modal-content">
+
+        <div class="form-modal-header">
+            <h3>Edit Your Profile</h3>
+            <span class="form-modal-close-btn" id="profileModalClose">&times;</span>
+        </div>
+        
+        <div class="form-modal-body">
+            <div class="form-group">
+                <label for="modalNameInput" class="form-label">Name</label>
+                <input type="text" id="modalNameInput" class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label for="modalEmailInput" class="form-label">Email</label>
+                <input type="email" id="modalEmailInput" class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label for="modalRoleInput" class="form-label">Role</label>
+                <select id="modalRoleInput" class="form-select" disabled>
+                    <option value="System Administrator">System Administrator</option>
+                    <option value="Hospital Staff" selected>Hospital Staff</option>
+                </select>
+            </div>
+
+            <div class="form-success-message" id="profileSuccessMessage">
+                Profile updated successfully!
+            </div>
+            
+            <div class="form-actions">
+                <button class="form-btn form-btn-cancel" id="cancelProfileBtn">Discard</button>
+                <button class="form-btn form-btn-save" id="saveProfileBtn">Save Changes</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="footer-container"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

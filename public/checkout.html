@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Herbal Health</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <div class="main-content">
+        <div class="checkout-container">
+            <div class="checkout-header">
+                <h1>Checkout</h1>
+                <a href="shopping_cart.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to cart</a>
+            </div>
+
+            <div class="checkout-content">
+                <div class="info-payment-section">
+                    <form id="checkoutForm" action="#" method="POST"> 
+                        <h3 class="section-title"><i class="fas fa-user"></i> Basic Information</h3>
+                        
+                        <div class="input-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" class="input-field" placeholder="Olivia" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" class="input-field" placeholder="Graceful" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" id="email" name="email" class="input-field" placeholder="olivia.graceful@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="input-field" placeholder="+1 (555) 123-4567" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address" class="input-field" placeholder="123 Main St, Anytown, USA" required>
+                        </div>
+
+                        <h3 class="section-title"><i class="fas fa-credit-card"></i> Payment Details</h3>
+                        <div class="payment-methods">
+                            <div class="payment-method">
+                                <label>
+                                    <input type="radio" name="payment_method" value="card" checked>
+                                    Credit card
+                                </label>
+                            </div>
+                            <div class="payment-method">
+                                <label>
+                                    <input type="radio" name="payment_method" value="cash_on_delivery">
+                                    Cash on Delivery
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="credit-card-details" id="creditCardDetails">
+                            <div class="card-icons">
+                                <i class="fab fa-cc-visa"></i>
+                                <i class="fab fa-cc-mastercard"></i>
+                                <i class="fab fa-paypal"></i>
+                                <i class="fab fa-google-pay"></i>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cardName">Name on card</label>
+                                <input type="text" id="cardName" name="cardName" class="input-field" placeholder="Full Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cardNumber">Card number</label>
+                                <input type="text" id="cardNumber" name="cardNumber" class="input-field" placeholder="xxxx xxxx xxxx xxxx" required>
+                            </div>
+                            <div class="input-row">
+                                <div class="form-group">
+                                    <label for="expiryDate">Expiry date</label>
+                                    <input type="text" id="expiryDate" name="expiryDate" class="input-field" placeholder="MM / YY" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvc">CVC</label>
+                                    <input type="text" id="cvc" name="cvc" class="input-field" placeholder="123" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cash-on-delivery-message" id="cashOnDeliveryMessage" style="display: none;">
+                            <p>You've selected <strong>Cash on Delivery</strong>. Please have the exact amount ready.</p>
+                        </div>
+                        
+                        <button type="submit" class="place-order-btn" id="confirmOrderBtn">Confirm Order</button> 
+                    </form>
+                </div>
+                
+                <div class="order-summary-container">
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal-overlay" id="confirmationModal">
+        <div class="modal-content">
+            <i class="fas fa-check-circle modal-icon"></i>
+            <h2>Order Confirmed!</h2>
+            <p>Your order has been successfully placed and is being processed.</p>
+            <p style="font-size: 0.85em; color: var(--primary-green);">Thank you for shopping with Herbal Health.</p>
+            <button id="continueShoppingBtn">Continue Shopping</button>
+        </div>
+    </div>
+    
+    <div id="footer-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

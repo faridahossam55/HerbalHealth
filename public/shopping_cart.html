@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Herbal Health System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="container cart-container">
+        <h1 class="page-title">Your Shopping Cart</h1>
+
+        <section class="cart-layout">
+            
+            <div class="cart-items-wrapper">
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+                        </tbody>
+                </table>
+                
+                <div class="coupon-section">
+                    <input type="text" placeholder="Enter your Coupon Code">
+                    <button class="apply-coupon-btn">Apply Coupon</button>
+                </div>
+                
+                <div style="text-align: right; margin-top: 20px;">
+                    <button class="btn clear-cart-btn" id="clear-cart">Clear Cart</button>
+                </div>
+            </div>
+            
+            <div class="order-summary-box">
+                <h2>Order Summary</h2>
+                <div class="summary-line"><span>Subtotal:</span><span class="subtotal-value" id="subtotal-value">$0.00</span></div>
+                <div class="summary-line"><span>Discount:</span><span id="discount-value" class="total-value discount-value">-$0.00</span></div>
+                <div class="summary-line"><span>Shipping:</span><span class="shipping-value" id="shipping-value">$20.00</span></div>
+                <hr>
+                <div class="summary-line total-final"><span>Total (Final):</span><span class="total-final-value" id="total-final-value">$20.00</span></div>
+                
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-paypal"></i>
+                    <i class="fab fa-google-pay"></i>
+                </div>
+                
+                <button class="checkout-btn">Proceed to Check Out</button>
+            </div>
+        </section>
+
+        <hr class="separator">
+
+        <section class="related-products">
+            <h2>Related Products</h2>
+            <div class="product-cards-grid">
+                
+                <div class="product-card">
+                    <img src="images/تابيوكا.jpg" alt="Tapioca Flour" class="related-img">
+                    <h3>Tapioca Flour</h3>
+                    <p>$15.99</p>
+                    <button class="add-to-cart-btn" data-product-id="Diabetes-herbs-0">Add</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/زعفران.jpg" alt="Star Anise Spice" class="related-img">
+                    <h3>Star Anise Spice</h3>
+                    <p>$9.99</p>
+                    <button class="add-to-cart-btn" data-product-id="Diabetes-herbs-1">Add</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/كركم بودر.jpg" alt="Turmeric Powder" class="related-img">
+                    <h3>Turmeric Powder</h3>
+                    <p>$12.50</p>
+                    <button class="add-to-cart-btn" data-product-id="Diabetes-herbs-2">Add</button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

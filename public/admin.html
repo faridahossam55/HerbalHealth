@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="body adminPage-body">
+     <div id="header-container"></div>
+<div class="container adminPage-container">
+
+  <div class="profile-header adminPage-profile-header">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Admin Photo" class="adminPage-profile-img">
+    <div class="info adminPage-info">
+      <h2 id="adminPage-adminName">Nouran Nasser</h2>
+      <p>Email: <span id="adminPage-adminEmail">nouran@example.com</span></p>
+      <p>Role: <span id="adminPage-adminRole">System Administrator</span></p>
+    </div>
+    <button class="edit-btn save-btn adminPage-edit-btn" id="adminPage-openProfileModalBtn">Edit Profile</button>
+  </div>
+
+  <div class="management-section adminPage-management-section">
+    <h3>Admin Actions</h3>
+    <ul class="management-list adminPage-management-list" id="adminPage-managementList"></ul>
+
+    <button class="save-btn adminPage-save-btn" id="adminPage-openAddProductModalBtn">Add New Product</button>
+    <button class="save-btn adminPage-save-btn" id="adminPage-openDeleteModalBtn">Delete Product</button>
+    <button class="save-btn adminPage-save-btn" id="adminPage-openUpdateStateModalBtn">Update State</button>
+  </div>
+
+  <div class="performance-summary adminPage-performance-summary">
+    <h3>Performance Summary</h3>
+    <div class="summary-cards adminPage-summary-cards">
+      <div class="card adminPage-card">
+        <h4>Total Sales</h4>
+        <p id="adminPage-totalSales">$12,340</p>
+      </div>
+      <div class="card adminPage-card">
+        <h4>Orders</h4>
+        <p id="adminPage-totalOrders">1,245</p>
+      </div>
+      <div class="card adminPage-card">
+        <h4>Active Users</h4>
+        <p id="adminPage-activeUsers">732</p>
+      </div>
+      <div class="card adminPage-card">
+        <h4>Low Stock Alerts</h4>
+        <p id="adminPage-lowStock">5</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="stock-overview adminPage-stock-overview">
+    <h3>Stock Overview</h3>
+
+    <input type="text" id="adminPage-stockSearch" class="adminPage-stockSearch" placeholder="Search product..." onkeyup="adminPage_filterStock()">
+
+    <table class="stock-table adminPage-stock-table" id="adminPage-stockTable">
+      <thead>
+        <tr>
+          <th>Product ID</th>
+          <th>Product Name</th>
+          <th>Category</th>
+          <th>Price ($)</th>
+          <th>Stock</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>101</td>
+          <td>Organic Honey</td>
+          <td>Food</td>
+          <td>10.50</td>
+          <td>35</td>
+          <td><span class="status in-stock adminPage-in-stock">In Stock</span></td>
+        </tr>
+
+        <tr>
+          <td>102</td>
+          <td>Natural Soap</td>
+          <td>Beauty</td>
+          <td>4.99</td>
+          <td>5</td>
+          <td><span class="status low-stock adminPage-low-stock">Low Stock</span></td>
+        </tr>
+
+        <tr>
+          <td>103</td>
+          <td>Herbal Tea</td>
+          <td>Beverage</td>
+          <td>7.25</td>
+          <td>0</td>
+          <td><span class="status out-stock adminPage-out-stock">Out of Stock</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="stock-overview adminPage-hospitalRequests" style="margin-top: 25px; border: 2px solid #FDCB2F;">
+    <h3 style="color: #1E5E2F;">Pending Hospital Requests</h3>
+    <p style="margin-bottom: 15px; color: #555;">Review and approve new requests from staff.</p>
+
+    <table class="stock-table adminPage-stock-table" id="adminPage-pendingRequestsTable">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Hospital Name</th>
+          <th>Request Type</th>
+          <th>Details</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>14 Nov 2025</td>
+          <td>Cleopatra Hospital</td>
+          <td>Product Shortage</td>
+          <td>Need 100 units of Vitamin C...</td>
+          <td>
+            <button class="save-btn adminPage-approve-btn" style="background-color:#2A7D2E; color:white; margin: 2px;">Approve</button>
+            <button class="cancel-btn adminPage-reject-btn" style="margin: 2px;">Reject</button>
+          </td>
+        </tr>
+        <tr>
+          <td>13 Nov 2025</td>
+          <td>Dar Al Fouad</td>
+          <td>System Issue</td>
+          <td>Cannot access billing page.</td>
+          <td>
+            <button class="save-btn adminPage-approve-btn" style="background-color:#2A7D2E; color:white; margin: 2px;">Approve</button>
+            <button class="cancel-btn adminPage-reject-btn" style="margin: 2px;">Reject</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="activity-section adminPage-activity-section">
+    <h3>Recent Activities</h3>
+    <ul class="activity-list adminPage-activity-list" id="adminPage-activityList">
+      <li><span>12 Nov 2025:</span> Updated hospital data successfully.</li>
+      <li><span>11 Nov 2025:</span> Added new product “Honey Herb”.</li>
+      <li><span>10 Nov 2025:</span> Deleted user account #23.</li>
+    </ul>
+  </div>
+
+</div>
+
+
+<!-- MODALS -->
+<div id="adminPage-profileModal" class="form-modal">
+    <div class="form-modal-content">
+        <div class="form-modal-header">
+            <h3>Edit Your Profile</h3>
+            <span class="form-modal-close-btn" id="adminPage-profileModalClose">&times;</span>
+        </div>
+        <div class="form-modal-body">
+            <div class="form-group">
+                <label for="adminPage-modalNameInput" class="form-label">Name</label>
+                <input type="text" id="adminPage-modalNameInput" class="form-input">
+            </div>
+            <div class="form-group">
+                <label for="adminPage-modalEmailInput" class="form-label">Email</label>
+                <input type="email" id="adminPage-modalEmailInput" class="form-input">
+            </div>
+            <div class="form-group">
+                <label for="adminPage-modalRoleInput" class="form-label">Role</label>
+                <select id="adminPage-modalRoleInput" class="form-select">
+                    <option value="System Administrator">System Administrator</option>
+                    <option value="Hospital Staff">Hospital Staff</option>
+                </select>
+            </div>
+            <div class="form-success-message" id="adminPage-profileSuccessMessage">Profile updated successfully!</div>
+            <div class="form-actions">
+                <button class="form-btn form-btn-cancel" id="adminPage-cancelProfileBtn">Discard</button>
+                <button class="form-btn form-btn-save" id="adminPage-saveProfileBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="adminPage-productModal" class="form-modal">
+    <div class="form-modal-content">
+        <div class="form-modal-header">
+            <h3>Add New Product</h3>
+            <span class="form-modal-close-btn" id="adminPage-productModalClose">&times;</span>
+        </div>
+        <div class="form-modal-body">
+            <form id="adminPage-addProductForm">
+                <div class="form-group">
+                    <label for="adminPage-productName" class="form-label">Product Name</label>
+                    <input type="text" id="adminPage-productName" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPage-productPrice" class="form-label">Price ($)</label>
+                    <input type="number" id="adminPage-productPrice" class="form-input" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPage-productDesc" class="form-label">Description</label>
+                    <textarea id="adminPage-productDesc" class="form-textarea"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="form-btn form-btn-cancel" id="adminPage-cancelProductBtn">Cancel</button>
+                    <button type="submit" class="form-btn form-btn-save">Save Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="adminPage-updateStateModal" class="form-modal">
+    <div class="form-modal-content">
+        <div class="form-modal-header">
+            <h3>Update Product State</h3>
+            <span class="form-modal-close-btn" id="adminPage-updateStateModalClose">&times;</span>
+        </div>
+        <div class="form-modal-body">
+            <form id="adminPage-updateStateForm">
+                <div class="form-group">
+                    <label for="adminPage-updateProductName" class="form-label">Product Name</label>
+                    <input type="text" id="adminPage-updateProductName" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPage-productStatus" class="form-label">New Status</label>
+                    <select id="adminPage-productStatus" class="form-select">
+                        <option value="In Stock">In Stock</option>
+                        <option value="Out of Stock">Out of Stock</option>
+                        <option value="On Offer">On Offer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="adminPage-productQuantity" class="form-label">New Quantity</label>
+                    <input type="number" id="adminPage-productQuantity" class="form-input" min="0">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="form-btn form-btn-cancel" id="adminPage-cancelUpdateStateBtn">Cancel</button>
+                    <button type="submit" class="form-btn form-btn-save">Update State</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="adminPage-deleteProductModal" class="form-modal">
+    <div class="form-modal-content">
+        <div class="form-modal-header">
+            <h3>Delete Product</h3>
+            <span class="form-modal-close-btn" id="adminPage-deleteModalClose">&times;</span>
+        </div>
+        <div class="form-modal-body">
+            <form id="adminPage-deleteProductForm">
+                <div class="form-group">
+                    <label for="adminPage-deleteProductName" class="form-label">Product Name</label>
+                    <input type="text" id="adminPage-deleteProductName" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Delete Type</label>
+                    <div class="form-radio-group">
+                        <label><input type="radio" name="adminPage-deleteType" value="all" checked> Delete All Stock</label>
+                        <label><input type="radio" name="adminPage-deleteType" value="specific"> Delete Specific Quantity</label>
+                    </div>
+                </div>
+                <div class="form-group" id="adminPage-deleteQuantityWrapper" style="display:none;">
+                    <label for="adminPage-deleteQuantity" class="form-label">Quantity to Delete</label>
+                    <input type="number" id="adminPage-deleteQuantity" class="form-input" min="1">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="form-btn form-btn-save" id="adminPage-cancelDeleteBtn">Cancel</button>
+                    <button type="submit" class="form-btn form-btn-cancel">Confirm Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="adminPage-productModal" class="modal adminPage-modal">
+  <div class="modal-content adminPage-modal-content">
+    <span class="close-btn adminPage-close-btn" id="adminPage-productModalClose">&times;</span>
+    <form class="modal-form adminPage-modal-form" id="adminPage-addProductForm">
+      <h3>Add New Product</h3>
+
+      <label for="adminPage-productName">Product Name</label>
+      <input type="text" id="adminPage-productName" required>
+
+      <label for="adminPage-productPrice">Price ($)</label>
+      <input type="number" id="adminPage-productPrice" step="0.01" required>
+
+      <label for="adminPage-productDesc">Description</label>
+      <textarea id="adminPage-productDesc"></textarea>
+
+      <div class="form-actions adminPage-form-actions">
+        <button type="submit" class="save-btn adminPage-save-btn">Save Product</button>
+        <button type="button" class="cancel-btn adminPage-cancel-btn" id="adminPage-cancelProductBtn">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="adminPage-updateStateModal" class="modal adminPage-modal">
+  <div class="modal-content adminPage-modal-content">
+    <span class="close-btn adminPage-close-btn" id="adminPage-updateStateModalClose">&times;</span>
+    <form class="modal-form adminPage-modal-form" id="adminPage-updateStateForm">
+      <h3>Update Product State</h3>
+
+      <label for="adminPage-updateProductName">Product Name</label>
+      <input type="text" id="adminPage-updateProductName" required>
+
+      <label for="adminPage-productStatus">New Status</label>
+      <select id="adminPage-productStatus">
+        <option value="In Stock">In Stock</option>
+        <option value="Out of Stock">Out of Stock</option>
+        <option value="On Offer">On Offer</option>
+      </select>
+
+      <label for="adminPage-productQuantity">New Quantity</label>
+      <input type="number" id="adminPage-productQuantity" min="0">
+
+      <div class="form-actions adminPage-form-actions">
+        <button type="submit" class="save-btn adminPage-save-btn">Update State</button>
+        <button type="button" class="cancel-btn adminPage-cancel-btn" id="adminPage-cancelUpdateStateBtn">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="adminPage-deleteProductModal" class="modal adminPage-modal">
+  <div class="modal-content adminPage-modal-content">
+    <span class="close-btn adminPage-close-btn" id="adminPage-deleteModalClose">&times;</span>
+    <form class="modal-form adminPage-modal-form" id="adminPage-deleteProductForm">
+      <h3>Delete Product</h3>
+
+      <label for="adminPage-deleteProductName">Product Name</label>
+      <input type="text" id="adminPage-deleteProductName" required>
+
+      <div class="radio-group adminPage-radio-group">
+        <label><input type="radio" name="adminPage-deleteType" value="all" checked> Delete All Stock</label>
+        <label><input type="radio" name="adminPage-deleteType" value="specific"> Delete Specific Quantity</label>
+      </div>
+
+      <div id="adminPage-deleteQuantityWrapper" style="display:none;">
+        <label for="adminPage-deleteQuantity">Quantity to Delete</label>
+        <input type="number" id="adminPage-deleteQuantity" min="1">
+      </div>
+
+      <div class="form-actions adminPage-form-actions">
+        <button type="submit" class="cancel-btn adminPage-cancel-btn">Confirm Delete</button>
+        <button type="button" class="save-btn adminPage-save-btn" id="adminPage-cancelDeleteBtn">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="footer-container"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
